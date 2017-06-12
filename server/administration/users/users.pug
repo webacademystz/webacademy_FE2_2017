@@ -1,0 +1,44 @@
+extends ../../layouts/administration
+block main-content
+    table( class="table")
+        caption Users
+            thead
+                tr
+                    th Username
+                    th Email
+                    th Roles
+                    th Edit roles
+                    th Is Banned
+                    th Is Deleted
+            tbody
+                if users
+                    each user in users
+                        tr
+                            td=user.username
+                            td=user.email
+                            td=user.roles
+                            td
+                                form( method="post" action="/manage/change-user-roles/" + user._id )
+                                    .checkbox
+                                        label
+                                            input( type="checkbox" value="admin" name="roles" checked=( user.roles.indexOf( 'admin' ) > -1 ) )
+                                            | Admin
+                                    .checkbox
+                                        label
+                                            input( type="checkbox" value="master-admin" name="roles" checked=( checked=( user.roles.indexOf( 'master-admin' ) > -1 ) ) )
+                                            | Master Admin
+                                    button( type="submit" class="change-roles btn btn-primary" ) save
+                            td
+                                form( method="post" action="/manage/is-banned/" + user._id )
+                                    .checkbox
+                                        label
+                                            input( type="checkbox" value="banned" name="bannUser" checked=( user.isBanned ) )
+                                            | Bann/Unbann
+                                    button( type="submit" class="change-roles btn btn-primary" ) save
+                            td
+                                form( method="post" action="/manage/is-deleted/" + user._id )
+                                    .checkbox
+                                        label
+                                            input( type="checkbox" value="deleted" name="deleteUser" checked=( user.isDeleted ) )
+                                            | Delete/Restore
+                                    button( type="submit" class="change-roles btn btn-primary" ) save

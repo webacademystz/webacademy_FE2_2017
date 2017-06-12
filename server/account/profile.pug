@@ -1,0 +1,27 @@
+extends ../layouts/default
+block main-content
+    h1.text-center Profile
+    .col-md-4
+        img( class="avatar-img" src="images/noimage.gif" alt="no image available" )
+    .col-md-8
+        form( class="update-profile-form" method="post" action="/profile" )
+            fieldset
+                legend Change User Data
+                .form-group
+                    label( for="username" ) Username
+                    input( id="username" class="form-control" type="text" name="username" placeholder="Enter username" value=username )
+                .form-group
+                    label( for="email" ) Email
+                    input( id="email" class="form-control" type="email" name="email" placeholder="Enter email" value=email )
+                .form-group
+                    label( for="old-password" ) Old Password
+                    input( id="old-password" class="form-control" type="password" name="oldPassword" placeholder="Enter old password" )
+                .form-group
+                    label( for="password" ) New Password
+                    input( id="password" class="form-control" type="password" name="password" placeholder="Enter new password" )
+                .form-group
+                    label( for="confirm-password" ) Confirm New Password
+                    input( id="confirm-password" class="form-control" type="password" name="confirmPassword" placeholder="Confirm new password" )
+                button( class="btn btn-primary" type="submit" ) Save New Data
+            if errorMsg
+                div( class="alert alert-danger" )= errorMsg

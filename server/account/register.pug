@@ -1,0 +1,20 @@
+extends ../layouts/default
+block main-content
+    form( class="login-register-form" method="post" action="/register" )
+        fieldset
+            legend Register
+            .form-group
+                label( for="username" ) Username
+                input( id="username" class="form-control" type="text" name="username" placeholder="Enter username" )
+            .form-group
+                label( for="email" ) Email
+                input( id="email" class="form-control" type="email" name="email" placeholder="Enter email" )
+            .form-group
+                label( for="password" ) Password
+                input( id="password" class="form-control" type="password" name="password" placeholder="Enter password" )
+            .form-group
+                label( for="confirm-password" ) Confirm Password
+                input( id="confirm-password" class="form-control" type="password" name="confirmPassword" placeholder="Confirm password" )
+            button( class="btn btn-primary" type="submit" ) Register
+        if( errorMsg )
+            div( class="alert alert-danger" ) #{ errorMsg }

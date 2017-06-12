@@ -1,0 +1,26 @@
+extends ../../layouts/administration
+block main-content
+    h1.text-center Create Section
+    form( id="section-form" method="post" action="/manage/create-section/" + id enctype="multipart/form-data" )
+        .form-group
+            label( for="section-name" ) * Section Name:
+            input( id="section-name" class="form-control" type="text" name="sectionName" value=name )
+        .form-group
+            label( for="section-heading" ) * Section Heading:
+            input( id="section-heading" class="form-control" type="text" name="sectionHeading" value=heading )
+        .form-group
+            label( for="section-body" ) Section Body:
+            textarea( id="section-body" class="form-control" rows="5" name="sectionBody" )= body
+        .form-group
+            label( for="section-desc" ) Section Description:
+            textarea( id="section-desc" class="form-control" rows="5" name="sectionDescription" )= description
+        div( id="add-image-input" class="form-group text-center")
+            button( id="add-section-image" class="btn btn-warning" type="button" ) Add more image fields
+        .form-group
+            label Section images:
+            div( id="upload-images-field" )
+                input( class="form-control" type="file" name="sectionImage_0" )
+        .form-group
+            button( class="btn btn-primary pull-right" ) Save
+block page-scripts
+    script( type="text/javascript" src="/js/multiplySectionImage.js" )

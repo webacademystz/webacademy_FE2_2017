@@ -1,0 +1,33 @@
+extends ../../layouts/administration
+block main-content
+    h1.text-center Sections
+    a( href="/manage/create-section" )
+        button( class="btn btn-primary" type="button" ) Create New Section
+    table.table
+        caption Sections
+        theader
+            tr
+                th Section Name
+                th Heading
+                th Body
+                th Description
+                th Images
+                th Edit
+                th Delete
+        tbody
+            if sections
+                each section in sections
+                    tr
+                        td= section.name
+                        td= section.heading
+                        td= section.body
+                        td= section.description
+                        td
+                            each img in section.images
+                                img( src=img.url alt=img.fileName width="50" )
+                        td
+                            form( method="post" action="/manage/edit-section/" + section._id )
+                                button( class="btn btn-primary" type="submit" ) Edit
+                        td
+                            form( method="post" action="/manage/delete-section/" + section._id )
+                                button( class="btn btn-primary" type="submit" ) Delete

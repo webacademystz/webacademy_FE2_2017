@@ -1,0 +1,36 @@
+.login-register-form {
+    margin: 5% auto;
+    width: 30%;
+    padding: 1.5em;
+    text-align: center;
+    background-color: #3c3c3c;
+    color: #9b9b9b;
+    border-radius: 5px;
+}
+.login-register-form legend {
+    color: #fff;
+}
+.update-profile-form {
+    margin: 0 auto;
+    width: 80%;
+    padding: 1.5em;
+    text-align: center;
+    background-color: #3c3c3c;
+    color: #9b9b9b;
+    border-radius: 10px;
+}
+.update-profile-form legend {
+    color: #FFF;
+}
+.alert-danger {
+    margin-top: 15px;
+    text-align: center;
+}
+.navbar-brand {
+    padding: 10px 15px;
+}
+.avatar-img {
+    width: 60%;
+    border: 1px solid #0000ff;
+    border-radius: 10px;
+}

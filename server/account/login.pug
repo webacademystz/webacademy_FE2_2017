@@ -1,0 +1,14 @@
+extends ../layouts/default
+block main-content
+    form( class="login-register-form" method="post" action="/login" )
+        fieldset
+            legend Login
+            .form-group
+                label( for="username" ) Username
+                input( id="username" class="form-control" type="text" name="username" placeholder="Enter username" )
+            .form-group
+                label( for="password" ) Username
+                input( id="password" class="form-control" type="password" name="password" placeholder="Enter password" )
+            button( class="btn btn-primary" type="submit" ) Login
+        if( errorMsg )
+            div( class="alert alert-danger" ) #{ errorMsg }
